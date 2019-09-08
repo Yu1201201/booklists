@@ -2,8 +2,11 @@
 
 <ul>
   <% @booklists.each do |booklist| %>
-    <li><%= link_to booklist.id, booklist %> : <%= booklist.title %></li>
-    <li><%= link_to booklist.id, booklist %> : <%= booklist.review %></li>
-    <li><%= link_to booklist.id, booklist %> : <%= booklist.image %></li>
+    <li><%= link_to booklist.id, booklist %> : <%= 'タイトル' %> : <%= booklist.title %></li>
+    <p><%= 'レビュー' %> : <%= booklist.review %></p>
   <% end %>
 </ul>
+
+<%= paginate @booklists %>
+
+<%= link_to '新規Booklistの投稿', new_booklist_path %>

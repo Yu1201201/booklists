@@ -1,21 +1,7 @@
 <% if logged_in? %>
   <div class="row">
     <aside class="col-sm-4">
-      <%= form_with(model: @booklist, local: true) do |f| %>
-        <div class="form-group">
-          <%= f.label :title, 'タイトル' %>
-          <%= f.text_field :title, class: 'form-control' %>
-        </div>
-        <div class="form-group">
-          <%= f.label :review, 'レビュー' %>
-          <%= f.text_field :review, class: 'form-control' %>
-        </div>
-        <div class="form-group">
-          <%= f.label :image, '画像URL' %>
-          <%= f.text_field :image, class: 'form-control' %>
-        </div>
-        <%= f.submit '投稿する', class: 'btn btn-primary btn-block' %>
-      <% end %>
+      <%= link_to '投稿する', new_booklist_path, class: "btn btn-primary btn-block" %>
     </aside>
     <div class="col-sm-8">
       <%= render 'booklists/booklists', booklists: @booklists %>

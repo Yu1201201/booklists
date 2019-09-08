@@ -4,7 +4,7 @@ class BooklistsController < ApplicationController
   before_action :set_booklist, only: [:show, :edit, :update, :destroy]
   
   def index
-    @booklists = Booklist.all
+    @booklists = Booklist.all.page(params[:page]).per(5)
   end
 
   def show

@@ -1,8 +1,9 @@
 <h1>id: <%= @booklist.id %> のBooklist詳細ページ</h1>
 
-<p><%= @booklist.title %></p>
-<p><%= @booklist.review %></p>
-<p><%= @booklist.image %></p>
+<p><%= 'タイトル' %> : <%= @booklist.title %></p>
+<p><%= 'レビュー' %> : <%= @booklist.review %></p>
+<p><%= '画像URL' %> : <%= @booklist.image %></p>
 
-<%= link_to 'Booklistを編集する', edit_booklist_path(@booklist) %>
-<%= link_to 'このメッセージを削除する', @booklist, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
+<%= link_to '一覧に戻る', booklists_path %>
+<%= link_to 'このBooklistを編集する', edit_booklist_path(@booklist) %>
+<%= link_to 'このBooklistを削除する', @booklist, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
