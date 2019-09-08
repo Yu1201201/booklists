@@ -1,13 +1,13 @@
 class BooklistsController < ApplicationController
   before_action :require_user_logged_in
   before_action :correct_user, only: [:destroy]
+  before_action :set_booklist, only: [:show, :edit, :update, :destroy]
   
   def index
     @booklists = Booklist.all
   end
 
   def show
-    @booklist = Booklist.find(params[:id])
   end
 
   def new
@@ -27,12 +27,9 @@ class BooklistsController < ApplicationController
   end
 
   def edit
-    @booklist = Booklist.find(params[:id])
   end
 
   def update
-    @booklist = Booklist.find(params[:id])
-
     if @booklist.update(booklist_params)
       flash[:success] = 'Booklist は正常に更新されました'
       redirect_to @booklist
@@ -45,13 +42,17 @@ class BooklistsController < ApplicationController
   def destroy
     @booklist.destroy
     flash[:success] = 'Booklistを削除しました。'
-    redirect_back(fallback_location: root_path)
+    redirect_to booklists_url
   end
   
   private
 
   def booklist_params
     params.require(:booklist).permit(:title, :review, :image)
+  end
+  
+  def set_booklist
+    @booklist = Booklist.find(params[:id])
   end
   
   def correct_user

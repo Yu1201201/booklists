@@ -5,3 +5,4 @@
 <p><%= @booklist.image %></p>
 
 <%= link_to 'Booklistを編集する', edit_booklist_path(@booklist) %>
+<%= link_to 'このメッセージを削除する', @booklist, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
