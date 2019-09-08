@@ -1,12 +1,29 @@
 <h1>Booklist一覧</h1>
 
-<ul>
-  <% @booklists.each do |booklist| %>
-    <li><%= link_to booklist.id, booklist %> : <%= 'タイトル' %> : <%= booklist.title %></li>
-    <p><%= 'レビュー' %> : <%= booklist.review %></p>
-  <% end %>
-</ul>
+<% if @booklists.any? %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>id</th>
+        <th>タイトル</th>
+        <th>レビュー</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @booklists.each do |booklist| %>
+        <tr>
+          <td><%= link_to booklist.id, booklist %></td>
+          <td><%= booklist.title %></td>
+          <td><%= booklist.review %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div>
+    <%= paginate @booklists %>
+  </div>
+<% end %>
 
-<%= paginate @booklists %>
+
 
 <%= link_to '新規Booklistの投稿', new_booklist_path %>

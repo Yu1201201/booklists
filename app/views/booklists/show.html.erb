@@ -1,9 +1,24 @@
 <h1>id: <%= @booklist.id %> のBooklist詳細ページ</h1>
 
-<p><%= 'タイトル' %> : <%= @booklist.title %></p>
-<p><%= 'レビュー' %> : <%= @booklist.review %></p>
-<p><%= '画像URL' %> : <%= @booklist.image %></p>
+<table class="table table-bordered">
+  <tr>
+    <th>id</th>
+    <td><%= @booklist.id %></td>
+  </tr>
+  <tr>
+    <th>タイトル</th>
+    <td><%= @booklist.title %></td>
+  </tr>
+  <tr>
+    <th>レビュー</th>
+    <td><%= @booklist.review %></td>
+  </tr>
+  <tr>
+    <th>画像URL</th>
+    <td><%= @booklist.image %></td>
+  </tr>
+</table>
 
-<%= link_to '一覧に戻る', booklists_path %>
-<%= link_to 'このBooklistを編集する', edit_booklist_path(@booklist) %>
-<%= link_to 'このBooklistを削除する', @booklist, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
+
+<%= link_to 'このBooklistを編集する', edit_booklist_path(@booklist), class: 'btn btn-light' %>
+<%= link_to 'このBooklistを削除する', @booklist, method: :delete, data: { confirm: '本当に削除してよろしいですか？' }, class: 'btn btn-danger' %>

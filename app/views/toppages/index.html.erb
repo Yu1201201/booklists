@@ -1,7 +1,10 @@
 <% if logged_in? %>
   <div class="row">
     <aside class="col-sm-4">
-      <%= link_to '投稿する', new_booklist_path, class: "btn btn-primary btn-block" %>
+      <div class="center jumbotron">
+        <%= link_to '新規Booklistを投稿する', new_booklist_path, class: "btn btn-primary btn-block" %>
+        <%= link_to 'Booklist一覧を表示する', booklists_path %>
+      </div>
     </aside>
     <div class="col-sm-8">
       <%= render 'booklists/booklists', booklists: @booklists %>
