@@ -1,0 +1,9 @@
+<h1>Booklist一覧</h1>
+
+<ul>
+  <% @booklists.each do |booklist| %>
+    <li><%= link_to booklist.id, booklist %> : <%= booklist.title %></li>
+    <li><%= link_to booklist.id, booklist %> : <%= booklist.review %></li>
+    <li><%= link_to booklist.id, booklist %> : <%= booklist.image %></li>
+  <% end %>
+</ul>

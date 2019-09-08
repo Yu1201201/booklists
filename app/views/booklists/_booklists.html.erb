@@ -1,0 +1,21 @@
+<ul class="list-unstyled">
+  <% booklists.each do |booklist| %>
+    <li class="media mb-3">
+      <img class="mr-2 rounded" src="<%= gravatar_url(booklist.user, { size: 50 }) %>" alt="">
+      <div class="media-body">
+        <div>
+          <%= link_to booklist.user.name, user_path(booklist.user) %> <span class="text-muted">posted at <%= booklist.created_at %></span>
+        </div>
+        <div>
+          <p><%= 'タイトル' %> : <%= link_to booklist.title, booklist %></p>
+        </div>
+        <div>
+          <% if current_user == booklist.user %>
+            <%= link_to "Delete", booklist, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
+          <% end %>
+        </div>
+      </div>
+    </li>
+  <% end %>
+  <%= paginate booklists %>
+</ul>

@@ -11,7 +11,8 @@
   </aside>
   <div class="col-sm-8">
     <ul class="nav nav-tabs nav-justified mb-3">
-      <li class="nav-item"><a href="#" class="nav-link">Booklists</a></li>
+      <li class="nav-item"><a href="<%= user_path(@user) %>" class="nav-link <%= 'active' if current_page?(user_path(@user)) %>">Booklists  <span class="badge badge-secondary"><%= @count_booklists %></span></a></li>
     </ul>
+    <%= render 'booklists/booklists', booklists: @booklists %>
   </div>
 </div>

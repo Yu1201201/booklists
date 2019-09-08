@@ -1,0 +1,7 @@
+<h1>id: <%= @booklist.id %> のBooklist詳細ページ</h1>
+
+<p><%= @booklist.title %></p>
+<p><%= @booklist.review %></p>
+<p><%= @booklist.image %></p>
+
+<%= link_to 'Booklistを編集する', edit_booklist_path(@booklist) %>
