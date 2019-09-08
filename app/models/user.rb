@@ -31,6 +31,9 @@ class User < ApplicationRecord
     self.followings.include?(other_user)
   end
   
+  def feed_booklists
+    Booklist.where(user_id: self.following_ids + [self.id])
+  end
 
   def like(booklist)
     favorites.find_or_create_by(booklist_id: booklist.id)
