@@ -7,4 +7,23 @@ class User < ApplicationRecord
   has_secure_password
   
   has_many :booklists
+  
+  has_many :favorites
+  has_many :favposts, through: :favorites, source: :booklist
+  
+
+  def like(booklist)
+    favorites.find_or_create_by(booklist_id: booklist.id)
+  end
+  
+  def unlike(booklist)
+    favorite = favorites.find_by(booklist_id: booklist.id)
+    favorite.destroy if favorite
+  end
+  
+  def favpost?(booklist)
+    self.favposts.include?(booklist)
+  end  
+
+
 end

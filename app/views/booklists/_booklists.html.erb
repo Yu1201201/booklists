@@ -13,6 +13,7 @@
           <% if current_user == booklist.user %>
             <%= link_to "Delete", booklist, method: :delete, data: { confirm: "You sure?" }, class: 'btn btn-danger btn-sm' %>
           <% end %>
+          <%= render 'favorites/like_button', booklist: booklist  %>
         </div>
       </div>
     </li>
