@@ -42,7 +42,7 @@ class BooklistsController < ApplicationController
   def destroy
     @booklist.destroy
     flash[:success] = 'Booklistを削除しました。'
-    redirect_to booklists_url
+    redirect_to root_url
   end
   
   private

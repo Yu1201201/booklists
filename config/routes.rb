@@ -12,7 +12,9 @@ Rails.application.routes.draw do
       get :followers
       get :likes
     end
-  end   
+  end 
+  resources :booklists_image
+  resources :toppages
   resources :booklists
   resources :relationships, only: [:create, :destroy]
   resources :favorites, only: [:create, :destroy]
