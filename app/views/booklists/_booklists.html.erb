@@ -8,6 +8,7 @@
         </div>
         <div>
           <p><%= 'タイトル' %> : <%= link_to booklist.title, booklist %></p>
+          <p><%= 'レビュー' %> : <%= link_to booklist.review, booklist %></p>
         </div>
         <div>
           <% if current_user == booklist.user %>
